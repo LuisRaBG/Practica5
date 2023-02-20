@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fromulario de registro - Mi Web</title>
+</head>
+
+<style>
+
+    body{
+        background-color: #00a4f0;
+        margin: 0;
+    }
+
+    .form{
+        width: 350px;
+        height: 890px;
+        background: rgb(35, 100, 100);
+        border-radius: 8px;
+        box-shadow: 0 0 40px -10px #181414;
+        margin: calc(50vh - 220px) auto;
+        padding: 20px 30px;
+        max-width: calc(100vw - 40px);
+        box-sizing: border-box;
+        font-family: 'Montserrat', sans-serif;
+        position: relative;
+    }
+
+    select{
+        width: 100%;
+        padding: 10px;
+        background: none;
+        outline: none;
+        resize: none;
+        border: 0;
+        font-family: 'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', serif;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        border-bottom:  2px solid #ffffff;
+    }
+    
+    select:hover{
+        border-bottom: 2px solid #c3c3cb;
+    }
+
+    input{
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        background: none;
+        outline: none;
+        resize: none;
+        color: #fff;
+        border: 0;
+        font-family: 'Montserrat', sans-serif;
+        transition: all .3s;
+        border-bottom: 2px solid #ffffff;
+    }
+
+    input::placeholder{
+        color: #ffffff;
+    }
+
+    input:focus{
+        border-bottom: 2px solid #c3c3cb;
+    }
+
+    .Municipalidad{
+        display: block;
+        margin: 10px 0 0;
+        font-size: 14px;
+        color: #ffffff;
+    }
+
+    .municipio{
+        display: block;
+        margin: 10px 0 0;
+        font-size: 14px;
+        color: #4e4e4e;
+    }
+
+    p:before{
+        content: attr(type);
+        display: block;
+        margin: 28px 0 0;
+        font-size: 14px;
+        color: #ffffff;
+    }
+
+    button{
+        float: right;
+        border-radius: 10px;
+        padding: 8px 12px;
+        font-family: 'Montserrat', 'Poppins',sans-serif;
+        border: 2px solid #c3c3cb;
+        background: #00000042;
+        color: #fff;
+        cursor: pointer;
+        transition: all .3s;
+    }
+
+    button:hover{
+        background: #f155c3;
+        color: #f8f8f8;
+        font-size: 15px;
+        border: 2px solid #fcfcfc;
+    }
+    
+    span{
+        margin: 0 5px 0 15px ;
+    }
+
+    .titulo{
+        margin: 1px 0;
+        padding-bottom: 0px;
+        width: 180px;
+        color: #fff;
+        border-bottom: 3px solid #ffffff;
+    }
+
+    .sexo, legend{
+        color: #ffffff;
+        font-size: 14px;
+    }
+
+    .conteiner{
+        display: block;
+        position: relative;
+        padding-left: 50px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 13px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+    }
+
+    .conteiner input{
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .checkmark{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 15px;
+        width: 15px;
+        border: 2px solid #ffffff;
+        background-color: #eee;
+        border-radius: 50%;
+    }
+
+    .conteiner:hover input ~ .checkmark,
+    .fin:hover input ~ .check{
+        background-color: #ccc;
+    }
+
+    .conteiner input:checked ~.checkmark,
+    .fin input:checked ~.check{
+        background-color: #59d2bf;
+    }
+
+    .checkmark::after,
+    .check::after{
+        content: "";
+        position: absolute;
+        display: none;
+    }
+
+    .conteiner input:checked ~ .checkmark::after,
+    .fin input:checked ~ .check::after{
+        display: block;
+    }
+
+    .conteiner .checkmark::after{
+        top: 4px;
+        left: 4px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background:#fff;
+    }
+
+    .fin{
+        display: block;
+        position: relative;
+        padding-left: 50px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 14px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+    }
+
+    .fin i{
+        color: #ffffff;
+        text-align: justify;
+        font-size: 11px;
+    }
+
+    .fin input{
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    .check{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        border: 2px solid #ffffff;
+        background-color: #eee;
+    }
+
+    .fin .check::after{
+        left: 7px;
+        top: 4px;
+        width: 4px;
+        height: 8px;
+        border: solid #fff;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+</style>
+<body>
+    <form class="form">
+
+    <div class="titulo">
+        <h2>Contactanos</h2>
+    </div>
+
+    <div class="name">
+        <p type="Apellido Paterno" ><input placeholder="Apellido paterno" maxlength="50"></p>
+        <p type="Apellido Materno" ><input placeholder="Apellido materno" maxlength="50"></p>
+        <p type="Nombre(s)"><input placeholder="Nombre(s)" maxlength="50"></p>
+    </div>
+
+        <div class="sexo">
+            <legend>Sexo</legend>
+            <br>
+
+            <label class="conteiner">Hombre
+                <input type="radio" name="sexo">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="conteiner">Mujer
+                <input type="radio" name="sexo">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+
+    <div class="asunto">
+        <p type="Email"><input placeholder="Correo" ></p>
+
+        <p type="Mensaje"><input placeholder="Mensaje" ></p>    
+    </div><br>
+
+    <div>
+        <legend>Municipalidad</legend>
+        
+        <select class="Municipalidad">
+            <option disabled hidden selected>Municipio</option>
+            <option value="" class="municipio">Orizaba</option>
+            <option value="" class="municipio">C&oacute;rdoba</option>
+            <option value="" class="municipio">Xalapa</option>
+            <option value="" class="municipio">Veracruz</option>
+        </select>
+    </div><br>
+        
+    <div class="marcas">
+        <label class="fin">
+            <i>Deseo recibir informaci&oacute;n sobre novedades y ofertas</i>
+            <input type="checkbox" checked>
+            <span class="check"></span>
+        </label>
+        
+        <label class="fin">
+            <i>Declaro haber le&iacute;do y acepto las condiciones 
+                generales del programa y la normativa sobre la protecci&oacute;n de datos.</i>
+                <input type="checkbox">
+                <span class="check"></span>
+        </label>
+
+        <button>Enviar</button>
+    </div>
+
+    </form>
+</body>
+</html>
